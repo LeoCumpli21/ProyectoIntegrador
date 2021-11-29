@@ -8,15 +8,19 @@ Transaccion::Transaccion()
     estado = false;
     fecha = Fecha();
     producto = Producto();
+    vendedor = Cliente();
+    comprador = Cliente();
 }
 
-Transaccion::Transaccion(std::string _tipo, int _id, bool _estado, Fecha _fecha, Producto _producto)
+Transaccion::Transaccion(std::string _tipo, int _id, bool _estado, Fecha _fecha, Producto _producto, Cliente _vendedor, Cliente _comprador)
 {
     tipo = _tipo;
     id = _id;
     estado = _estado;
     fecha = _fecha;
     producto = _producto;
+    vendedor = _vendedor;
+    comprador = _comprador;
 }
 
 std::string Transaccion::getTipo() const
@@ -63,4 +67,6 @@ void Transaccion::imprimirTransaccion()
     fecha.mostrarFecha();
     std::cout << std::endl;
     producto.imprimirProducto();
+    vendedor.imprime();
+    comprador.imprime();
 }

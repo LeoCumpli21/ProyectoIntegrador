@@ -4,6 +4,7 @@
 #include <string>
 #include "Fecha.h"
 #include "Producto.h"
+#include "Cliente.h"
 
 class Transaccion
 {
@@ -13,10 +14,12 @@ private:
     bool estado;
     Fecha fecha;
     Producto producto;
+    Cliente vendedor;
+    Cliente comprador;
 
 public:
     Transaccion(); //Constructor por defecto
-    Transaccion(std::string, int, bool, Fecha, Producto);
+    Transaccion(std::string, int, bool, Fecha, Producto, Cliente, Cliente);
     std::string getTipo() const;
     int getId() const;
     bool getEstado() const;
