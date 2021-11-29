@@ -4,11 +4,11 @@
 #include <iostream>
 
 class Envio{
-    public:
+    private:
         std::string transporte;
         double costo;
 
-    private:
+    public:
         Envio();
         Envio(std::string, double);
         void setTransporte(std::string);

@@ -7,10 +7,11 @@ Producto::Producto()
     precio = 0;
 }
 
-Producto::Producto(std::string _nombre, double _precio)
+Producto::Producto(std::string _nombre, double _precio, Envio _envio)
 {
     nombre = _nombre;
     precio = _precio;
+    envio = _envio;
 }
 
 // Métodos de acceso o getters
@@ -22,6 +23,11 @@ std::string Producto::getNombre() const
 double Producto::getPrecio() const
 {
     return precio;
+}
+
+Envio Producto::getEnvio()
+{
+    return envio;
 }
 
 // Métodos de modificación o setters
