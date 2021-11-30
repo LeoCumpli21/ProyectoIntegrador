@@ -5,6 +5,7 @@
 #include "Fecha.h"
 #include "Producto.h"
 #include "Cliente.h"
+const int MAX = 10;
 
 class Transaccion
 {
@@ -13,7 +14,7 @@ private:
     int id;
     bool estado;
     Fecha fecha;
-    Producto producto;
+    Producto producto[MAX];
     Cliente vendedor;
     Cliente comprador;
 
