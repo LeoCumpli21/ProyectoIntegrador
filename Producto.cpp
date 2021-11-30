@@ -1,5 +1,6 @@
 // Implementación de la clase Producto
 #include "Producto.h"
+#include "Envio.h"
 
 Producto::Producto()
 {
