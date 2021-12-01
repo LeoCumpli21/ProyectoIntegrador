@@ -15,12 +15,14 @@ private:
     bool estado;
     Fecha fecha;
     Producto producto[MAX];
+    int cantidades[MAX];
+    int cantProd;
     Cliente vendedor;
     Cliente comprador;
 
 public:
     Transaccion(); //Constructor por defecto
-    Transaccion(std::string, int, bool, Fecha, Producto, Cliente, Cliente);
+    Transaccion(std::string, int, bool, Fecha, Cliente, Cliente);
     std::string getTipo() const;
     int getId() const;
     bool getEstado() const;
@@ -29,6 +31,7 @@ public:
     void setEstado(bool);
     void completarTransaccion();
     void imprimirTransaccion();
+    void agregarProducto(Producto, int);
 };
 
 #endif //PRODUCTO_H
