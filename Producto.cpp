@@ -42,6 +42,13 @@ void Producto::setPrecio(double _precio)
     precio = _precio;
 }
 
-void Producto::imprimirProducto(){
-    std::cout << "Producto: " << nombre << " - " << "Precio: " << precio << std::endl;
+void Producto::setEnvio(Envio _envio)
+{
+    envio = _envio;
+}
+
+void Producto::imprimirProducto()
+{
+    std::cout << "Producto: " << nombre << " - "
+              << "Precio: " << precio << std::endl;
 }
