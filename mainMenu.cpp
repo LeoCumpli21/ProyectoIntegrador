@@ -2,7 +2,8 @@
 #include "Transaccion.h"
 using namespace std;
 
-Transaccion crearTransaccion(int &acum) {
+Transaccion crearTransaccion(int &acum)
+{
     Cliente vendedor;
     Cliente comprador;
     Fecha hoy(01, 12, 21);
@@ -19,7 +20,6 @@ Transaccion crearTransaccion(int &acum) {
     double costoEnvio;
     float precio;
     int cantidad;
-
 
     // pedimos los datos al usuario
     cout << "Ingrese el tipo de transaccion: ";
@@ -48,47 +48,52 @@ Transaccion crearTransaccion(int &acum) {
     cin >> costoEnvio;
     envio.setCosto(costoEnvio);
 
-
     producto.setEnvio(envio);
 
     cout << "Creando transaccion..." << endl;
 
     // Creamos la transacción
-    Transaccion transaccion(tipoTransaccion, acum+1, false, hoy, vendedor, comprador);
+    Transaccion transaccion(tipoTransaccion, acum + 1, false, hoy, vendedor, comprador);
     transaccion.agregarProducto(producto, cantidad);
     transaccion.imprimirTransaccion();
 
     return transaccion;
 }
 
-void listarTransacciones(int &acum, Transaccion _transacciones[]){
+void listarTransacciones(int &acum, Transaccion _transacciones[])
+{
     cout << "Transacciones Registradas: ";
-    for (int i = 0; i < acum; i++) {
+    for (int i = 0; i < acum; i++)
+    {
         _transacciones[i].imprimirTransaccion();
     }
 }
 
-void imprimirTransaccionEspecifico(Transaccion _transacciones[]){
+void imprimirTransaccionEspecifico(Transaccion _transacciones[])
+{
     int transaccion;
     cout << "Ingrese el ID del transaccion a imprimir: " << endl;
     cin >> transaccion;
-    _transacciones[transaccion-1].imprimirTransaccion();
+    _transacciones[transaccion - 1].imprimirTransaccion();
 }
 
-void completarTransaccion(Transaccion _transacciones[]){
+void completarTransaccion(Transaccion _transacciones[])
+{
     int transaccion;
     cout << "Ingrese el ID del transaccion a completar: " << endl;
     cin >> transaccion;
-    _transacciones[transaccion-1].completarTransaccion();
-    _transacciones[transaccion-1].imprimirTransaccion();
+    _transacciones[transaccion - 1].completarTransaccion();
+    _transacciones[transaccion - 1].imprimirTransaccion();
 }
 
-int main() {
+int main()
+{
     Transaccion transacciones[100];
     int opcion = 0;
     int acum = 0;
 
-    do {
+    do
+    {
         cout << endl;
         cout << "Menu de Transacciones" << endl;
         cout << "Que desea hacer: " << endl;
@@ -99,18 +104,22 @@ int main() {
         cout << "5. Salir" << endl;
         cin >> opcion;
 
-        if (opcion == 1) {
+        if (opcion == 1)
+        {
             transacciones[acum] = crearTransaccion(acum);
-            acum ++;
+            acum++;
         }
-        else if (opcion == 2) {
+        else if (opcion == 2)
+        {
             listarTransacciones(acum, transacciones);
         }
-        else if (opcion == 3) {
+        else if (opcion == 3)
+        {
             imprimirTransaccionEspecifico(transacciones);
         }
-        else if (opcion == 4) {
+        else if (opcion == 4)
+        {
             completarTransaccion(transacciones);
         }
-    }while (opcion != 5);
+    } while (opcion != 5);
 }

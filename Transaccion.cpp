@@ -90,6 +90,7 @@ void Transaccion::imprimirTransaccion()
         }
         subtotal = subtotal + (producto[i].getPrecio() * cantidades[i]);
         producto[i].imprimirProducto();
+        std::cout << "Cantidad: " << cantidades[i] << std::endl;
     }
     std::cout << "Subtotal: " << subtotal << std::endl;
 }
