@@ -30,5 +30,5 @@ int Cliente::getIdCliente() const{
 
 void Cliente::imprime(){
     std::cout << "Nombre del Cliente: " << empresa << std::endl;
-    std::cout << "Numero de Identificacion " << idCliente << std::endl;
+    std::cout << "Numero de Identificacion " << idCliente+1 << std::endl;
 }
