@@ -55,12 +55,14 @@ void Transaccion::setEstado(bool _estado)
 
 void Transaccion::completarTransaccion()
 {
+    std::cout << "Completando transaccion..." << std::endl;
     estado = true;
 }
 
-
-void Transaccion::agregarProducto(Producto _producto, int _cantidad){
-    if (cantProd < MAX) {
+void Transaccion::agregarProducto(Producto _producto, int _cantidad)
+{
+    if (cantProd < MAX)
+    {
         producto[cantProd] = _producto;
         cantidades[cantProd] = _cantidad;
         cantProd++;
@@ -69,6 +71,8 @@ void Transaccion::agregarProducto(Producto _producto, int _cantidad){
 
 void Transaccion::imprimirTransaccion()
 {
+    std::cout << std::endl
+              << std::endl;
     std::cout << "Tipo: " << tipo << std::endl;
     std::cout << "Id: " << id << std::endl;
     std::cout << "Estado: " << estado << std::endl;
@@ -77,10 +81,15 @@ void Transaccion::imprimirTransaccion()
     std::cout << std::endl;
     vendedor.imprime();
     comprador.imprime();
-    for (int i = 0; i < MAX; i++) {
-        if (i == cantProd) {
-        break;
+    float subtotal = 0;
+    for (int i = 0; i < MAX; i++)
+    {
+        if (i == cantProd)
+        {
+            break;
         }
+        subtotal = subtotal + (producto[i].getPrecio() * cantidades[i]);
         producto[i].imprimirProducto();
     }
+    std::cout << "Subtotal: " << subtotal << std::endl;
 }
