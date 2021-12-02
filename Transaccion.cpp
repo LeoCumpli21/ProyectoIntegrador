@@ -7,20 +7,20 @@ Transaccion::Transaccion()
     id = 0;
     estado = false;
     fecha = Fecha();
-    producto = Producto();
     vendedor = Cliente();
     comprador = Cliente();
+    cantProd = 0;
 }
 
-Transaccion::Transaccion(std::string _tipo, int _id, bool _estado, Fecha _fecha, Producto _producto, Cliente _vendedor, Cliente _comprador)
+Transaccion::Transaccion(std::string _tipo, int _id, bool _estado, Fecha _fecha, Cliente _vendedor, Cliente _comprador)
 {
     tipo = _tipo;
     id = _id;
     estado = _estado;
     fecha = _fecha;
-    producto = _producto;
     vendedor = _vendedor;
     comprador = _comprador;
+    cantProd = 0;
 }
 
 std::string Transaccion::getTipo() const
@@ -58,6 +58,15 @@ void Transaccion::completarTransaccion()
     estado = true;
 }
 
+
+void Transaccion::agregarProducto(Producto _producto, int _cantidad){
+    if (cantProd < MAX) {
+        producto[cantProd] = _producto;
+        cantidades[cantProd] = _cantidad;
+        cantProd++;
+    }
+}
+
 void Transaccion::imprimirTransaccion()
 {
     std::cout << "Tipo: " << tipo << std::endl;
@@ -66,7 +75,12 @@ void Transaccion::imprimirTransaccion()
     std::cout << "Fecha: ";
     fecha.mostrarFecha();
     std::cout << std::endl;
-    producto.imprimirProducto();
     vendedor.imprime();
     comprador.imprime();
+    for (int i = 0; i < MAX; i++) {
+        if (i == cantProd) {
+        break;
+        }
+        producto[i].imprimirProducto();
+    }
 }
